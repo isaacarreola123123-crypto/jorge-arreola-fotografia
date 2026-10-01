@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Jorge Arreola Fotografía — Bodas, XV años, editoriales, maternidad y fotografía de estudio. Xalapa, Veracruz, Chiapas y el mundo.">
+  <title>Jorge Arreola Fotografía</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Jorge Arreola Fotografía">
+      <span class="brand-mark">JA</span>
+      <span class="brand-text">
+        <strong>JORGE ARREOLA</strong>
+        <small>FOTOGRAFÍA</small>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <a href="#portafolio">Portafolio</a>
+      <a href="#estudio">Estudio</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="header-cta" href="https://wa.me/529613805924?text=Hola%20Jorge%2C%20me%20gustar%C3%ADa%20cotizar%20una%20sesi%C3%B3n%20de%20fotograf%C3%ADa." target="_blank" rel="noopener">Cotizar</a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-image" role="img" aria-label="Portafolio de Jorge Arreola Fotografía"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">XALAPA · VERACRUZ · CHIAPAS · EL MUNDO</p>
+        <h1>Historias que<br><em>merecen</em> ser recordadas.</h1>
+        <p class="hero-copy">Fotografía editorial, bodas, XV años, maternidad y retrato de estudio. Una mirada cuidada para convertir momentos reales en imágenes que permanecen.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#portafolio">Explorar portafolio <span>↓</span></a>
+          <a class="button button-line" href="https://wa.me/529613805924?text=Hola%20Jorge%2C%20quiero%20informaci%C3%B3n%20sobre%20fotograf%C3%ADa." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <span>JORGE ARREOLA / 2026</span>
+        <span>SCROLL PARA EXPLORAR ↓</span>
+      </div>
+    </section>
+
+    <section class="intro" id="estudio">
+      <div class="section-kicker">01 — SOBRE EL ESTUDIO</div>
+      <div class="intro-grid">
+        <h2>Fotografiar no es<br><em>solo mirar.</em></h2>
+        <div>
+          <p>Es observar la luz, anticipar el instante y construir una imagen que tenga algo que decir. Trabajo cada sesión buscando una estética limpia, emocional y atemporal.</p>
+          <p class="muted">Desde Xalapa para Veracruz, Chiapas y donde la historia nos lleve.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portafolio">
+      <div class="portfolio-heading">
+        <div>
+          <div class="section-kicker">02 — PORTAFOLIO</div>
+          <h2>Elige una <em>historia.</em></h2>
+        </div>
+        <p>Presiona una categoría. El obturador se abre y la galería aparece.</p>
+      </div>
+
+      <div class="category-grid" id="categoryGrid"></div>
+      <div id="galleryArea"></div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="contact-inner">
+        <div>
+          <div class="section-kicker">03 — CONTACTO</div>
+          <h2>Hablemos de<br><em>tu próxima historia.</em></h2>
+        </div>
+        <div class="contact-details">
+          <a class="contact-link big" href="https://wa.me/529613805924?text=Hola%20Jorge%2C%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20fotograf%C3%ADa." target="_blank" rel="noopener">
+            +52 961 380 5924 <span>↗</span>
+          </a>
+          <a class="contact-link" href="https://share.google/d82IClmMT4iJdvhyu" target="_blank" rel="noopener">
+            Ignacio Zaragoza 11, Zona Centro<br>91000 Xalapa-Enríquez, Veracruz
+            <span>Ver ubicación ↗</span>
+          </a>
+          <p class="contact-note">Estudio fotográfico en Xalapa · Atención con cita.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">JORGE ARREOLA <span>FOTOGRAFÍA</span></div>
+    <div>© 2026 · XALAPA, VERACRUZ</div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+    <button class="lightbox-arrow prev" id="lightboxPrev" aria-label="Anterior">‹</button>
+    <figure>
+      <img id="lightboxImage" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox-arrow next" id="lightboxNext" aria-label="Siguiente">›</button>
+  </div>
+
+  <script src="gallery-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
