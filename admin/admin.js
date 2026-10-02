@@ -51,7 +51,7 @@ async function loadDashboard(){
 }
 
 async function loadClients(){
-  const {data,error}=await db.from('clientes').select('*, reservas(*)').order('created_at',{ascending:false});
+  const {data,error}=await db.from('clientes').select('*').order('created_at',{ascending:false});
   if(error){$('clientsList').innerHTML='<p class="client-meta">No se pudieron cargar los clientes. Revisa las políticas RLS.</p>';return;}
   clientsCache=data||[]; renderClients();
 }
