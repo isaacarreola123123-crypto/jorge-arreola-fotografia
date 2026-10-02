@@ -40,7 +40,7 @@ async function loadDashboard(){
     db.from('contratos').select('*',{count:'exact',head:true}),
     db.from('contratos').select('*',{count:'exact',head:true}).eq('estado','firmado')
   ]);
- if(c.error||r.error||k.error||s.error){
+if(c.error||r.error||k.error||s.error){
   toast(
     'CLIENTES: '+(c.error?.message||'OK')+
     ' | RESERVAS: '+(r.error?.message||'OK')+
