@@ -40,9 +40,15 @@ async function loadDashboard(){
     db.from('contratos').select('*',{count:'exact',head:true}),
     db.from('contratos').select('*',{count:'exact',head:true}).eq('estado','firmado')
   ]);
-  if(c.error||r.error||k.error||s.error){
-    toast('Falta configurar la seguridad del proyecto. Ejecuta el SQL de configuración incluido en el ZIP.',true);
-  }
+ if(c.error||r.error||k.error||s.error){
+  toast(
+    'CLIENTES: '+(c.error?.message||'OK')+
+    ' | RESERVAS: '+(r.error?.message||'OK')+
+    ' | CONTRATOS: '+(k.error?.message||'OK')+
+    ' | FIRMADOS: '+(s.error?.message||'OK'),
+    true
+  );
+}
   $('statClients').textContent=c.count??0;
   $('statReservations').textContent=r.count??0;
   $('statContracts').textContent=k.count??0;
