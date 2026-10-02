@@ -45,7 +45,7 @@ if(c.error||r.error||k.error||s.error){
     'CLIENTES: '+(c.error?.message||'OK')+
     ' | RESERVAS: '+(r.error?.message||'OK')+
     ' | CONTRATOS: '+(k.error?.message||'OK')+
-    ' | FIRMADOS: '+(s.error?.message||'OK'),
+    const {data,error}=await db.from('clientes').select('*, reservas(*)').order('created_at',{ascending:false});
     true
   );
 }
