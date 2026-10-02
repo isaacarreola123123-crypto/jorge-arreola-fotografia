@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+<title>Contrato · Jorge Arreola Fotografía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="contrato.css">
+</head>
+<body class="contract-page">
+<main class="contract-shell">
+  <header class="contract-header">
+    <div class="brand-mini">JA <span>JORGE ARREOLA FOTOGRAFÍA</span></div>
+    <div class="secure">DOCUMENTO PRIVADO</div>
+  </header>
+  <section id="loading" class="contract-card"><p>Cargando contrato…</p></section>
+  <section id="contractView" class="contract-card hidden">
+    <div class="contract-top">
+      <div>
+        <div class="section-kicker">CONTRATO / RECIBO DE SERVICIO</div>
+        <h1 id="clientName">—</h1>
+      </div>
+      <div class="folio" id="folio">—</div>
+    </div>
+    <div class="summary-grid">
+      <div><span>Servicio</span><strong id="service">—</strong></div>
+      <div><span>Evento</span><strong id="eventDate">—</strong></div>
+      <div><span>Lugar</span><strong id="place">—</strong></div>
+      <div><span>Total</span><strong id="total">—</strong></div>
+      <div><span>Anticipo</span><strong id="deposit">—</strong></div>
+      <div><span>Saldo</span><strong id="balance">—</strong></div>
+    </div>
+    <article class="contract-content">
+      <h2 id="contractTitle">Detalles del servicio y condiciones</h2>
+      <div id="contractText"></div>
+    </article>
+
+    <section id="signSection" class="sign-section">
+      <div class="section-kicker">ACEPTACIÓN Y FIRMA</div>
+      <p>He leído y acepto el contenido del presente contrato.</p>
+      <label class="accept-row"><input type="checkbox" id="accept"> <span>Acepto el contrato</span></label>
+      <label>Nombre del firmante
+        <input id="signerName" autocomplete="name">
+      </label>
+      <div class="signature-label">Firma con el dedo o mouse</div>
+      <canvas id="signaturePad" width="900" height="260"></canvas>
+      <div class="signature-actions"><button id="clearSignature" class="button-contract secondary">Borrar firma</button><button id="signBtn" class="button-contract primary">Aceptar y firmar</button></div>
+      <p class="fine">Al firmar se registra la versión del documento, fecha y hora de aceptación.</p>
+    </section>
+
+    <section id="signedSection" class="signed-section hidden">
+      <div class="signed-mark">✓</div>
+      <h2>Contrato firmado</h2>
+      <p id="signedInfo"></p>
+      <button id="downloadPdf" class="button-contract primary">Descargar contrato PDF</button>
+    </section>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase-config.js"></script>
+<script src="contrato.js"></script>
+</body>
+</html>

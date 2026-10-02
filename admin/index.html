@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Administración · Jorge Arreola Fotografía</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <section id="loginView" class="auth-shell">
+    <div class="auth-card">
+      <div class="section-kicker">JORGE ARREOLA FOTOGRAFÍA</div>
+      <h1>Panel <em>administrativo.</em></h1>
+      <p class="auth-copy">Acceso privado para administrar clientes, reservas y contratos.</p>
+      <form id="loginForm">
+        <label>Correo
+          <input id="email" type="email" autocomplete="username" required>
+        </label>
+        <label>Contraseña
+          <input id="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="admin-button primary" type="submit">Entrar</button>
+      </form>
+      <a class="back-link" href="../">← Volver al sitio</a>
+    </div>
+  </section>
+
+  <section id="appView" class="admin-app hidden">
+    <header class="admin-topbar">
+      <div>
+        <div class="brand-mini">JA <span>JORGE ARREOLA FOTOGRAFÍA</span></div>
+        <div id="adminEmail" class="muted"></div>
+      </div>
+      <button id="logoutBtn" class="admin-button ghost">Cerrar sesión</button>
+    </header>
+
+    <main class="admin-container">
+      <div class="admin-heading">
+        <div>
+          <div class="section-kicker">ADMINISTRACIÓN</div>
+          <h1>Tu negocio, <em>en un solo lugar.</em></h1>
+        </div>
+        <button id="newClientBtn" class="admin-button primary">+ Nuevo cliente</button>
+      </div>
+
+      <div class="stats-grid">
+        <article><span>Clientes</span><strong id="statClients">0</strong></article>
+        <article><span>Reservas</span><strong id="statReservations">0</strong></article>
+        <article><span>Contratos</span><strong id="statContracts">0</strong></article>
+        <article><span>Firmados</span><strong id="statSigned">0</strong></article>
+      </div>
+
+      <section class="admin-panel">
+        <div class="panel-head">
+          <div>
+            <div class="section-kicker">CLIENTES</div>
+            <h2>Clientes y reservas</h2>
+          </div>
+          <input id="clientSearch" class="search" placeholder="Buscar cliente...">
+        </div>
+        <div id="clientsList" class="table-wrap"></div>
+      </section>
+    </main>
+  </section>
+
+  <div id="clientModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close="clientModal">×</button>
+      <div class="section-kicker">NUEVO EXPEDIENTE</div>
+      <h2>Crear <em>cliente.</em></h2>
+      <form id="clientForm">
+        <label>Nombre completo
+          <input id="clientName" required>
+        </label>
+        <div class="two-col">
+          <label>Teléfono
+            <input id="clientPhone" type="tel">
+          </label>
+          <label>Correo
+            <input id="clientEmail" type="email">
+          </label>
+        </div>
+        <hr>
+        <div class="section-kicker">RESERVA / EVENTO</div>
+        <div class="two-col">
+          <label>Servicio
+            <input id="service" placeholder="XV años, boda, sesión..." required>
+          </label>
+          <label>Paquete
+            <input id="packageName" placeholder="Paquete o servicio específico">
+          </label>
+        </div>
+        <div class="two-col">
+          <label>Fecha del evento
+            <input id="eventDate" type="date">
+          </label>
+          <label>Hora
+            <input id="eventTime" type="time">
+          </label>
+        </div>
+        <label>Lugar
+          <input id="eventPlace">
+        </label>
+        <div class="three-col">
+          <label>Costo total
+            <input id="totalCost" type="number" min="0" step="0.01" value="0">
+          </label>
+          <label>Anticipo
+            <input id="deposit" type="number" min="0" step="0.01" value="0">
+          </label>
+          <label>Saldo
+            <input id="balance" type="number" min="0" step="0.01" value="0">
+          </label>
+        </div>
+        <button class="admin-button primary" type="submit">Guardar cliente y reserva</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="contractModal" class="modal hidden">
+    <div class="modal-card wide">
+      <button class="modal-close" data-close="contractModal">×</button>
+      <div class="section-kicker">NUEVO CONTRATO</div>
+      <h2>Redacta el <em>contrato.</em></h2>
+      <p class="modal-note">Este texto es libre. Aquí puedes escribir exactamente lo acordado con cada cliente.</p>
+      <form id="contractForm">
+        <input type="hidden" id="contractReservationId">
+        <label>Título / referencia
+          <input id="contractTitle" value="Contrato / Recibo de servicio">
+        </label>
+        <label>Detalles del servicio y condiciones
+          <textarea id="contractContent" rows="18" required placeholder="Escribe aquí lo que incluye el servicio, condiciones, tiempos de entrega, responsabilidades, acuerdos particulares, etc."></textarea>
+        </label>
+        <div class="contract-actions">
+          <button class="admin-button ghost" type="button" data-close="contractModal">Cancelar</button>
+          <button class="admin-button primary" type="submit">Guardar y generar enlace</button>
+        </div>
+      </form>
+      <div id="contractLinkBox" class="link-box hidden">
+        <strong>Contrato creado.</strong>
+        <p>Comparte este enlace con el cliente:</p>
+        <div class="copy-row"><input id="contractLink" readonly><button id="copyLink" class="admin-button primary">Copiar</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../supabase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
